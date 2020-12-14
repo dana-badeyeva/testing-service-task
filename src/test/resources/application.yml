@@ -1,0 +1,6 @@
+auth.token=Basic dgVzdDpzZWNyZXQ=
+auth.client.id=test
+auth.client.secret=secret
+auth.grant.type=password
+auth.scope=read+write
+test.service.host=https://taschool-notes-service.herokuapp.com:443
