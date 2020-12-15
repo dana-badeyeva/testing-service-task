@@ -9,15 +9,15 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class AuthActions {
 
-    public final AuthFeignClient authFeignClient;
+    private final AuthFeignClient authFeignClient;
     private final String authorization;
 
-    public void registration(String email, String password) {
+    public void register(String email, String password) {
         RegistrationRequest request = RegistrationRequest.builder()
                 .email(email)
                 .password(password)
                 .build();
-        authFeignClient.registration(request);
+        authFeignClient.register(request);
     }
 
     public LoginResponse login(String email, String password, String grantType, String scope) {

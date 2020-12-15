@@ -39,7 +39,8 @@ class ServiceTest {
         authActions.registration(email, password);
 
         // 3. Authenticate and get token
-        String authToken = "Bearer " + authActions.login(email, password, GRANT_TYPE, SCOPE).getAccessToken();
+        LoginResponse login = authActions.login(email, password, GRANT_TYPE, SCOPE);
+        String authToken = "Bearer " + login.getAccessToken();
 
         // 4. Create a note with any content
         String firstContent = "My first note";

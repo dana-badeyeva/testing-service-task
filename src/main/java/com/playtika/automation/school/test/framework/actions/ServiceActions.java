@@ -5,7 +5,6 @@ import com.playtika.automation.school.test.framework.pojo.nested.Note;
 import com.playtika.automation.school.test.framework.pojo.requests.CreateNoteRequest;
 import com.playtika.automation.school.test.framework.pojo.requests.UpdateNoteRequest;
 import lombok.AllArgsConstructor;
-
 import java.util.List;
 
 @AllArgsConstructor
@@ -20,11 +19,11 @@ public class ServiceActions {
         return serviceFeignClient.createNote(authToken, request);
     }
 
-    public Note getNote(String authToken, Integer noteId) {
+    public Note getNote(String authToken, int noteId) {
         return serviceFeignClient.getNote(authToken, noteId);
     }
 
-    public Note updateNote(String authToken, Integer noteId, String content, Integer version) {
+    public Note updateNote(String authToken, int noteId, String content, int version) {
         UpdateNoteRequest request = UpdateNoteRequest.builder()
                 .content(content)
                 .version(version)
@@ -36,7 +35,7 @@ public class ServiceActions {
         return serviceFeignClient.getAllNotes(authToken);
     }
 
-    public void deleteNote(String authToken, Integer noteId) {
+    public void deleteNote(String authToken, int noteId) {
         serviceFeignClient.deleteNote(authToken, noteId);
     }
 }

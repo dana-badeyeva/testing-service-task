@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(
         name = "login-client",
-        url = "https://taschool-notes-service.herokuapp.com",
+        url = "${test.service.host}",
         configuration = FromUrlEncodedClientConfiguration.class
 )
-
 public interface AuthFeignClient {
 
     @PostMapping(value = "/v1/accounts", consumes = "application/json")
-    RegistrationResponse registration(@RequestBody RegistrationRequest registrationRequest);
+    RegistrationResponse register(@RequestBody RegistrationRequest registrationRequest);
 
     @PostMapping(value = "/oauth/token", consumes = "application/x-www-form-urlencoded")
     LoginResponse login(@RequestHeader("Authorization") String authorization,
